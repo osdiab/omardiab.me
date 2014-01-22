@@ -16,3 +16,11 @@ tmp
 .yardoc
 _yardoc
 doc/
+
+.DS_STORE
+
+# sass compiled files
+.sass-cache/
+
+# logs
+log/
