@@ -2,4 +2,5 @@
 #logo_stripe
 #heading_pane
   = haml "partials/heading_pane".to_sym
-= haml "partials/connect_pane".to_sym
+#connect_pane
+  = haml "partials/connect_pane".to_sym, locals: {connections: connections}

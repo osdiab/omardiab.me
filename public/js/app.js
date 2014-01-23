@@ -17,12 +17,8 @@ $(window).resize(function() {
     width: $('#name').height()
   });
 
-  $('#top_shade').css({
-    height: Math.ceil($('#heading_pane').offset().top +
-      $('#heading_pane').outerHeight())
-  });
-  $('#top_fade').css({
-    top: $('#top_shade').outerHeight()
+  $('#shade').css({
+    height: $(window).height()
   });
 
   $('#credit_bg').css({
