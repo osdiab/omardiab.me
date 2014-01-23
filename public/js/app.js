@@ -5,7 +5,7 @@ $(window).resize(function() {
   });
 
   $('#me').css({
-    height: $('#left').height()
+    height: $('#left').height() + parseInt($('#left').css('padding-top'))
   });
 
   $('#left').css({

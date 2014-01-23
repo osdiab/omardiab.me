@@ -80,26 +80,20 @@ a:visited {
 }
 
 #logo_pane {
-  padding: 10px;
+  display: inline-block;
 }
 
 #heading_pane {
-  display: inline-block;
-  text-align: left;
-}
-
-#left_pane {
-  float: left;
-  padding: 15px;
-}
-
-#me_pane {
-  float: left;
+  clear: both;
   text-align: center;
-  padding: 15px;
+}
+
+#left {
+  padding: 10px;
 }
 
 #me {
+  padding: 10px;
   border-radius: 50%;
   max-width: 300px;
 }
@@ -107,12 +101,14 @@ a:visited {
 #name {
   max-height: 100px;
   max-width: 80%;
+  padding: 10px;
 }
 
 #connect_pane {
+  clear: both;
+  padding-top: 40px;
   padding-bottom: 20px;
   max-width: 500px;
-  margin: 0 auto;
 }
 
 .service_link {
@@ -144,4 +140,35 @@ a:visited {
   background: #000;
   opacity: .3;
   z-index: -1;
+}
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+    content: " "; /* 1 */
+    display: table; /* 2 */
+}
+
+.clearfix:after {
+    clear: both;
+}
+
+/*
+ * For IE 6/7 only
+ */
+.clearfix {
+    *zoom: 1;
+}
+
+/* valign top */
+
+.align_top {
+  vertical-align: top;
+}
+
+.align_top:before {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    vertical-align: top;
 }
