@@ -16,6 +16,14 @@ $(window).resize(function() {
   $('#left').css({
     width: $('#name').height()
   });
+
+  $('#top_shade').css({
+    height: $('#heading_pane').offset().top +
+      $('#heading_pane').outerHeight()
+  });
+  $('#top_fade').css({
+    top: $('#top_shade').outerHeight()
+  });
 });
 
 $(window).load(function() {
