@@ -1,7 +1,30 @@
 body {
+  font-family: Open Sans, Helvetica Neue, Helvetica, Arial;
+  font-weight: 300;
+  color: #FFF;
+
   margin: 0;
   padding: 0;
   border: 0;
+
+  background: url('/img/bg.jpg') no-repeat center center fixed;
+  background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}
+
+a {
+  color: #FF6D00;
+  text-decoration: none;
+}
+
+a:hover {
+  color: #FF8A33;
+}
+
+a:visited {
+  color: #FF6D00;
 }
 
 #wrapper {
@@ -56,3 +79,10 @@ body {
 #connect_pane {
   padding-bottom: 20px;
 }
+
+#credit {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
