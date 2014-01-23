@@ -18,11 +18,16 @@ $(window).resize(function() {
   });
 
   $('#top_shade').css({
-    height: $('#heading_pane').offset().top +
-      $('#heading_pane').outerHeight()
+    height: Math.ceil($('#heading_pane').offset().top +
+      $('#heading_pane').outerHeight())
   });
   $('#top_fade').css({
     top: $('#top_shade').outerHeight()
+  });
+
+  $('#credit_bg').css({
+    height: $('#credit').height(),
+    width: $('#credit').width()
   });
 });
 
