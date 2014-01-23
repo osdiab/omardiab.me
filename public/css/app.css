@@ -45,6 +45,10 @@ body {
   }
 }
 
+#content {
+  padding-top: 50px;
+}
+
 .page_section {
   display: table-row;
   height: 1px;

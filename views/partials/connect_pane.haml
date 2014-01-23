@@ -1,5 +1,7 @@
 - connections.each do |connection|
-  - img = "/img/service/#{connection[0]}.svg"
+  - img_name = "/img/service/#{connection[0]}"
+  - img_svg = "#{img_name}.svg"
+  - img_png = "#{img_name}.png"
   - url = connection[1]
   .service_link{onclick: "location.href='#{url}'"}
-    %img.service_img.align_mid{src: img}
+    %img.service_img.align_mid{src: img_svg, onerror: "this.src='#{img_png}'"}
