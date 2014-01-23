@@ -8,5 +8,5 @@ get '/' do
 end
 
 not_found do
-  haml :'404'
+  redirect to('/')
 end
