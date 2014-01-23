@@ -1,4 +1,8 @@
 $(window).resize(function() {
+  $('#wrapper').css({
+    marginBottom: -$('#credit').outerHeight()
+  });
+
   $('#logo_stripe').css({
     top: $('#logo_pane').position().top,
     height: $('#logo_pane').outerHeight()
@@ -17,8 +21,10 @@ $(window).resize(function() {
   });
 
   $('#credit_bg').css({
-    height: $('#credit').height(),
-    width: $('#credit').width()
+    height: $('#credit_contents').height(),
+    width: $('#credit_contents').width(),
+    left: $('#credit_contents').offset().left,
+    top: $('#credit_contents').offset().top
   });
 });
 
