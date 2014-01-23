@@ -1,21 +1,58 @@
+body {
+  margin: 0;
+  padding: 0;
+  border: 0;
+}
+
 #wrapper {
-  padding: 20px;
   position: absolute;
   width: 100%;
   text-align: center;
-}
-
-#content {
-  display: inline-block;
-  text-align: left;
 }
 
 .center {
   margin: 0 auto;
 }
 
+/* image pane */
+
+#logo_stripe {
+  position: absolute;
+  background: #FF6D00;
+  width: 100%;
+  z-index: -1;
+}
+
+#logo_pane {
+  padding: 10px;
+}
+
+#heading_pane {
+  display: inline-block;
+  text-align: left;
+}
+
+#left_pane {
+  float: left;
+  padding: 15px;
+}
+
+#me_pane {
+  float: left;
+  text-align: center;
+  padding: 15px;
+}
+
 #me {
   border-radius: 50%;
-  width: 80%;
-  max-width: 500px;
+  max-width: 300px;
+}
+
+#name {
+  max-height: 100px;
+  max-width: 80%;
+}
+
+#connect_pane {
+  padding-bottom: 20px;
 }
