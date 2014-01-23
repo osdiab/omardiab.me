@@ -1,9 +1,4 @@
 $(window).resize(function() {
-  // center page content vertically and horizontally
-  $('#wrapper').css({
-    top: ($(window).height() - $('#content').outerHeight()) / 2
-  });
-
   $('#logo_stripe').css({
     top: $('#logo_pane').position().top,
     height: $('#logo_pane').outerHeight()
@@ -18,7 +13,7 @@ $(window).resize(function() {
   });
 
   $('#shade').css({
-    height: $(window).height()
+    height: $(document).height()
   });
 
   $('#credit_bg').css({
