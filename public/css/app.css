@@ -16,25 +16,25 @@ body {
 
 @media (min-width: 1921px) {
   body {
-    background: url('/img/bg/2520.jpg');
+    background-image: url('/img/bg/2520.jpg');
   }
 }
 
 @media (min-width: 1367px) and (max-width:1920px) {
   body {
-    background: url('/img/bg/1920.jpg');
+    background-image: url('/img/bg/1920.jpg');
   }
 }
 
 @media (min-width: 769px) and (max-width:1366px){
   body {
-    background: url('/img/bg/1366.jpg');
+    background-image: url('/img/bg/1366.jpg');
   }
 }
 
 @media (max-width: 768px) {
   body {
-    background: url('/img/bg/768.jpg');
+    background-image: url('/img/bg/768.jpg');
   }
 }
 
