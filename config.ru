@@ -2,4 +2,8 @@
 
 require './app'
 
-run Sinatra::Application
+use Rack::Deflater
+use Rack::Static,
+  :urls => ["/img", "/js", "/css"],
+  :root => "public"
+run App
