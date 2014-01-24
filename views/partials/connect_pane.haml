@@ -1,7 +1,14 @@
 - connections.each do |connection|
-  - img_name = "/img/service/#{connection[0]}"
+  - service = connection[0]
+  - img_name = "/img/service/#{service}"
   - img_svg = "#{img_name}.svg"
   - img_png = "#{img_name}.png"
   - url = connection[1]
-  .service_link{onclick: "location.href='#{url}'"}
-    %img.service_img.align_mid{src: img_svg, onerror: "this.src='#{img_png}'"}
+  %a.service_link{href: url,
+                  onmouseover: "highlighter.highlight_service('#{service}', true)",
+                  onmouseout: "highlighter.highlight_service('#{service}', false)",
+    }
+    %object.service_img.align_mid{type: 'image/svg+xml',
+                                  data: img_svg,
+                                  id: "#{service}-btn",
+                                  onload: '$("window").resize();'}
