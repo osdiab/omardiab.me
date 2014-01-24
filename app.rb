@@ -13,7 +13,8 @@ class App < Sinatra::Base
                    ['soundcloud', 'https://soundcloud.com/yellowfive'],
                    ['medium', 'https://medium.com/@therealomardiab'],
                    ['facebook', 'https://www.facebook.com/omar.s.diab'],
-                   ['email', 'mailto://o.s.diab@gmail.com']]
+                   ['twitter', 'https://twitter.com/therealomardiab'],
+                   ['email', 'mailto:o.s.diab@gmail.com']]
     haml :home, locals: {connections: connections}
   end
 
