@@ -1,6 +1,3 @@
-// for button animations
-jQuery.Color.hook('fill stroke');
-
 // --------------
 // resizing logic
 // --------------
@@ -44,35 +41,74 @@ $(window).load(function() {
   $(window).resize();
 });
 
+// credit: Drew Baker, bit.ly/1fcLElK
+// replace img-tagged svgs with the same svg's inlined.
+// Allows manipulation of svg's on the DOM, does not dispatch new requests
+// since they should be cached.
+function inline_all_svg_img()
+{
+  $('.service_img').each(function(index, elem) {
+    elem = $(elem);
+    var img_id = elem.attr('id');
+    var img_class = elem.attr('class');
+    var img_url = elem.attr('src');
+
+    $.get(img_url, function(data) {
+      // Get the SVG tag, ignore the rest
+      var svg = $(data).find('svg');
+
+      // Add replaced image's ID to the new SVG
+      if (typeof img_id !== 'undefined') {
+        svg = svg.attr('id', img_id);
+      }
+      // Add replaced image's classes to the new SVG
+      if (typeof img_class !== 'undefined') {
+        svg = svg.attr('class', img_class);
+      }
+
+      // Remove any invalid XML tags as per http://validator.w3.org
+      svg = svg.removeAttr('xmlns:a');
+
+      // Replace image with new SVG
+      elem.replaceWith(svg);
+
+    }, 'xml');
+  });
+}
+
+function add_randomized_link_listeners() {
+  $('.randomized').each(function(index, elem) {
+    $(elem).on('click', function(e) {
+        e.preventDefault();
+        var url = $(this).prop('href');
+        window.location.href = url.split('?')[0];
+    });
+  });
+}
+
 // --------------------
 // initialization logic
 // --------------------
 $(document).ready(function() {
-  // Replace svg's with png's if browser doesn't support it.
-  if (!Modernizr.svg) {
-    var elemsToReplace = [];
-    $('object').each(function(index, elem) {
-      var type = $(elem).attr('type');
-      if (type !== undefined && type === 'image/svg+xml') {
-        var old_data = $(elem).attr('data');
-        var new_data = old_data.substring(old_data.lastIndexOf('.') + 1) +
-                                          '.png';
-        $(elem).attr({
-          type: 'image/png',
-          data: new_data
-        });
-      }
-    });
+  if (Modernizr.svg) {
+    inline_all_svg_img();
   }
+  add_randomized_link_listeners();
 });
 
 // -----------------
 // Highlighter class
 // -----------------
-var Highlighter = function() {
+// Requires jquery-color for svg highlighting
+// Add to application js:
+// jQuery.Color.hook('fill stroke');
+
+var Highlighter = function(svg) {
+  var svg_enabled = svg;
   var types = ['fill', 'stroke'];
   var normal_color = '#FFF';
   var highlight_color = '#FF6D00';
+  var animation_speed = 200;
   var cache = {};
   types.forEach(function(type, index, arr) {
     cache[type] = [];
@@ -98,7 +134,7 @@ var Highlighter = function() {
 
     var change = {};
     change[type] = color;
-    $(elem).animate(change, 200);
+    $(elem).animate(change, animation_speed);
   };
 
   // finds all svgs to (un)highlight for a service, and executes
@@ -134,11 +170,14 @@ var Highlighter = function() {
     var type = $(elem).attr('type');
     if (type === undefined) return;
     if (type === 'image/svg+xml') {
-      highlight_svg(service, elem, highlight);
+      if (svg_enabled) {
+        highlight_svg(service, elem, highlight);
+      }
     } else if (type === 'image/png') {
       highlight_png(service, elem, highlight);
     }
   };
 };
 
-highlighter = new Highlighter();
+// turn svg highlighting off, since it's being displayed inline
+highlighter = new Highlighter(false);

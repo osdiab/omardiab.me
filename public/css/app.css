@@ -141,15 +141,36 @@ a:visited {
   padding: 20px;
 }
 
+.service_link [fill] {
+  fill: #FFF;
+
+  -webkit-transition: fill .25s ease;
+  -moz-transition: fill .25s ease;
+  -o-transition: fill .25s ease;
+  transition: fill .25s ease;
+}
+
+.service_link [stroke] {
+  stroke: #FFF;
+
+  -webkit-transition: stroke .25s ease;
+  -moz-transition: stroke .25s ease;
+  -o-transition: stroke .25s ease;
+  transition: stroke .25s ease;
+}
+
 .service_img {
   width: 100%;
   max-height: 100%;
   pointer-events: none;
 }
 
-.service_link:hover path {
-  stroke: #FF6D00;
+.service_link:hover [fill] {
   fill: #FF6D00;
+}
+
+.service_link:hover [stroke] {
+  stroke: #FF6D00;
 }
 
 #credit {
